@@ -1,0 +1,41 @@
+# LLD
+
+## Chess Game
+
+- Clarify Requirements
+  - main focus is modeling the board, pieces and move rules
+  - basic 2-player scenario
+  - need to handle or detect check/checkmate, basic moves and special moves
+- Identifying Core Entities
+  - ChessGame
+    - central orchestrator
+    - manage the current turn, track moves or determine game-over conditions
+  - Board
+    - 8*8 grid
+    - contains cells that either hold a piece or empty
+  - Cell
+    - has coordinates (row,colum or rank)
+    - hold a reference to a Piece
+  - Piece (abstract class or interface)
+    - Common methods/flieds for all chess pieces: color (black,white), possibly the piece's current position
+    - Abstract method like canMove(Board board, Cell start, Cell end) to validate moves.
+  - Concrete Piece Classes
+    - Pawn, Rook, Knight, Bishop, Queen, King
+    - Eahc overrides canMove() with its own rules.
+  - Player
+    - Holds info about color, plus logic tomake a mve (human input or AI if needed)
+  - Move
+    - structure or class that records a move''s detail(start cell, end cell, captured piece, etc)
+    - helps with undo/redo or replay moves if needed
+  - GameState
+    - ongoing white won, black won, draw etc
+- Model Interactions
+- Handling Special Moves
+- Checking Check/Checkmate
+- Potential Design Patterns
+  - Factory Pattern for piece creation
+    - if you a piece type as enum (PAWN, ROOK, etc) a factory can provide the proper subclass instance
+  - Strategy Pattern for movement logic
+    - Each piece is like a movement strategy
+  - Observer Pattern
+    - If we have a UI that upfates whene the board chnages

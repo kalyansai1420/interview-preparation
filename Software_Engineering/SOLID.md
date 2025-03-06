@@ -1,0 +1,22 @@
+# SOLID Principles
+
+- Single Responsibility Principle
+  - Def : A class should have one and only one reason to change
+  - Example : A `report` class is responsible for generating report content only; a separate `ReportPrinter` class handles printing or formatting.
+  - Why/Benefit : Easier to debug, maintain, and test since each class has a focused purpose.
+- Open/Closed Principle
+  - Software entities should be open for extension but closed for modification
+  - having a `Shape` interface and multiple subclasses (`Circle`,`Square`) avoids modifying existing classes when adding a new shape. You simple create a new subclass for the new shape.
+  - Reduces side effects; changes in one area do not break existing funcitonalities
+- Liskov Substituion Principle
+  - Objects of a superclass should be replaceable with objects of a subclass without affectign the correctness of program
+  - If `Rectangle` is a base class and `Square` is a subclass, Square shoudl be able to replace Rectangle without causing unexpected behavior.
+  - Ensures constitent behavior and that inheritance is used properly.
+- Interface Segragation Principle
+  - Clients should not be forced to depend on interfaces they do not use.
+  - Instead of giant interface `IMultiFunctionDevice` (printer,scanner,fax), split it into smaller interfaces : `IPrinter`, `IScanner` and `IFax`. Classes can implement only the interfaces relevant to them.
+  - Improves flexibilty and decouples unrelated functionalities.
+- Dependency Inversion Principle
+  - High-level modules should not depend on low-level modules; both should depend on abstractions.
+  - A `PaymentService` depends on `PaymentProcessor` interface, not on a concrete `PayPalPaymentProcessor`
+  - Increases testablity and extensibility. You can swap out different processors(Paypal,Stripe) without changing your service's core code.

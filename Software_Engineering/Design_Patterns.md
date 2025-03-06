@@ -1,0 +1,54 @@
+# Design Patterns
+
+- Why we need design patterns
+  - they are tried-and-tested solutions to commmon software design problems. They :
+    - provide a shared vocabulary among developers.
+    - encourage best practices such as loose coupling and high cohesion
+    - make systems more maintainable, modular and testable
+- Four types of patterns
+  - Creational
+  - Behavirol
+  - Structural
+
+- Startegy Pattern
+  - What it is
+    - Allows you to encapsulate different algorithms(or strategies) inside classes so that you can interchange them at runtime
+    - example : different sorting strategies in a SortContext class (QuickSort,MergeSort)
+  - Why
+    - Avoids cumbersome if-else or switch case lgic to choose the algorithm
+    - promotes the open/closed principle by letting you add new strategies without modifying existing ones.
+  - How
+    - Define a common interface (e.g. ISortStrategy) with a single method (e.g. sort(List<T>items)).
+    - Implement the interface with different strategy classes(e.g. QuickSortStrategy, MergerSortStrategy)
+    - The context (e.g. SortContext) uses a reference to the ISortStrategy and delegates the sorting to it.
+- Factory Pattern
+  - what
+    - a creational pattern that provides an interface for creating objects without exposing the creation logic to the client
+    - ShapeFactory can create different shapes (Circle, Rectable) based on the inputr parameters
+  - Why
+    - Keeps object creation centralized and consistent
+    - Encouranges loose coupling; client depend on a interface or abstract class not a concrate implementation
+  - How
+    - Create a factory class (ShapeFactory) with a mehtod (createShape(String type)) that returns abstract/interface type Shape
+    - Inside createShape , instantiate the correct concrete class (Circle, Rectangle) based on input.
+  - Singleton Pattern
+    - What
+      - Ensures only one instance of a class exists in the entire application, while providing a global point of access to it
+      - Logger class or global configuration class
+    - Why 
+      - Useful when exactly one instance is required to coordinate actions across the system ( e.g, a database connection pool manager)
+      - Reduces overhead or conflicts by centralizing control.
+    - How to use
+      - Make the constructor private
+      - Provide a static method that returns the single instance
+      - Lazy-load the instance or eagerly create it depending on the use case.
+  - Observer Pattern
+    - What
+      - defines one-to-many dependency between objects so that when one object (the subject) changes state, all its dependents(observers) are notified automatically
+      - ex: a Stock object chanegs in price, and all register observer(e.g. display panels, alert system) get notified
+    - Wy
+      - decouples the subject from its oberservers, allowing each observer to react in its own way without the subject needing to know details
+    - How
+      - Define a Subject interface that manages observers (register,remove, notify)
+      - Define a Observer intercae that has an update() method
+      - Concrete observers implement this to handle notifiactions
