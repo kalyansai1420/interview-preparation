@@ -1,0 +1,42 @@
+# LiteMQ
+
+- a simple message broker
+- implement a log-bassed message queue with disk persistence
+- Use java nio for efficient network communication
+- support producer-consumer patterns with message acknowledgements
+- optimize high throughputs using batching and compression
+
+- core features
+  - prodcuers and consumers : Clients can send and receive messages
+  - persistent storage (log based) : messages are stored on disk for durability
+  - message acknowledgement : Consumers must acknowledge message receipt
+  - fifo ordering : message should be delivered in the order they were produced
+  - concurrency & multi-threading : multiple producers/consumers should work efficiently
+- architecture overview
+  - producer send messages to the log writer
+  - log writer appends messgaes to segmented logs(fixed-size files)
+  - an indexing system maps message offsets to log file locations for fast retrival
+  - consumers read messages from segmented logs using indexing for efficent lookup
+  - the consumer offset tracker maintain the last read position for each consumer
+- Implemented logwriter
+  - designed logwriter to write messages to log files in an append only format
+  - implemented log rotation when file size exceeds the limit
+  - used bufferedwriter for efficient disk I/O
+  - allowed confirgurable log directory and file size limits
+- Implemented logreader
+  - designed logreader to read messages in fifo order
+  - handled EOF correctly
+  - implemented bufferedreader for efficient reading
+- advanced features
+  - Offset Tracking
+    - Essential for consumer recovery, improves reliability
+  - Pub/Sub Model
+    - Expands beyond FIFO queues, supports event driven models
+  - Replication & Fault Tolerance
+    - Ensures data durabilit and availability in case of failures
+  - Batching & Compression
+    - Improves throughput and storage efficieny
+  - Prority Quques
+    - Enables time-sensitive message processing
+  - Dead letter queue
+    - useful for handling fialed messgaes
