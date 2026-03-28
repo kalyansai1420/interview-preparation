@@ -22,13 +22,9 @@ export default function App() {
         },
       ],
     },
-    {
-      id: 4,
-      text: "Comment 2",
-      children: [],
-    },
+    
   ];
-  
+
   return (
     <div>
       <h1>Frontend Practice</h1>
