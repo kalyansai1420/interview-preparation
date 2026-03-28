@@ -8,15 +8,15 @@
 - [ ] Stopwatch  
 - [ ] Like Button (Toggle on/off)  
 - [ ] Star Rating Component  
-- [ ] Tabs Component  
+- [X] Tabs Component  
 - [ ] Accordion (Basic)  
 - [ ] Traffic Lights (State transitions) [🔗](https://lnkd.in/gkHQHsWX)  
 - [ ] Progress Bar (Normal)  
 - [ ] Holy Grail Layout (Header + Footer + Sidebar + Main layout)  
 - [ ] Input Mirror (Live text preview)  
 - [ ] Theme Toggle (Dark/Light with localStorage)  
-- [ ] Modal Popup  
-- [ ] Debounced Search Box  
+- [X] Modal Popup  
+- [X] Debounced Search Box  
 - [ ] Simple Form Validation  
 
 ## 🟡 Medium Level (Hooks, APIs, Styling, Multi-step flows)
