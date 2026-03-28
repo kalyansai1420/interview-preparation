@@ -12,23 +12,15 @@ export default function App() {
         {
           id: 2,
           text: "Reply 1",
-          children: [
-            {
-              id: 3,
-              text: "Reply 1.1",
-              children: [],
-            },
-          ],
         },
       ],
     },
-    
   ];
 
   return (
     <div>
       <h1>Frontend Practice</h1>
-      <Tabs/>
+      <Tabs />
       <DebounceSearch />
       <Modal />
       <CommentsList comments={comments} />
